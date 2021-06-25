@@ -2,7 +2,8 @@ from django.db import models
 
 # Create your models here.
 class Load(models.Model):
-    price = models.IntegerField()
+    price = models.CharField(max_length=20)
+    # price = models.IntegerField()
     title = models.CharField(max_length=50)
     desc = models.TextField()
     image = models.ImageField()
