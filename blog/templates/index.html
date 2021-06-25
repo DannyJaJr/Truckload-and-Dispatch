@@ -1,1 +1,12 @@
 <h1>Hello from the front end</h1>
+
+<!-- {{list_loads}} -->
+
+{% for load in list_loads %}
+<h1>{{load.title}}</h1>
+<h2>{{load.price}}</h2>
+<p>{{load.desc}}</p>
+<hr>
+
+
+{% endfor %}
