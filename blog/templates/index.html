@@ -1,24 +1,47 @@
 <!DOCTYPE html>
+<!-- to allow to load the function on html -->
+{% load static %}
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Truck Loads & Dispatch</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
 </head>
+
 <body>
-    <h1>Hello from the front end</h1>
-
-<!-- {{list_loads}} -->
-
-{% for load in list_loads %}
-<h1>{{load.title}}</h1>
-<h2>{{load.price}}</h2>
-<p>{{load.desc}}</p>
-<hr>
+    <!-- Start your project here-->
+    <h1 class="text-center">Truck Load Media</h1>
+    <div class="row"></div>
 
 
-{% endfor %}
-    
+
+
+    <!-- {{list_loads}} -->
+
+    {% for load in list_loads %}
+    <h1>{{load.title}}</h1>
+    <h2>{{load.price}}</h2>
+    <p>{{load.desc}}</p>
+    <hr>
+
+
+    {% endfor %}
+    <!-- End your project here-->
+
+    <!-- MDB -->
+    <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript"></script>
 </body>
+
 </html>
