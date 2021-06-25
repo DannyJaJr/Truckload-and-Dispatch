@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import include, path
 # bring views to create the path for home
 from blog.views import home
-
+#  to render static file documentation (https://docs.djangoproject.com/en/3.2/howto/static-files/)
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +27,8 @@ urlpatterns = [
     # path('', include("blog.urls")),
     # 2 now import home function from view
     path('', home, name="home"),
-]
+
+    # https://docs.djangoproject.com/en/3.2/howto/static-files/ for storage image from the settings
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

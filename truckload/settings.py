@@ -123,7 +123,8 @@ STATIC_URL = '/static/'
 
 # to store image in the media file
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-# MEDIA_URL = '/media/'
+# the path for the image on index.html is {{ load.image.url }} need the Media url for display
+MEDIA_URL = '/media/'
 
 
 

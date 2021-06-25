@@ -21,21 +21,36 @@
 <body>
     <!-- Start your project here-->
     <h1 class="text-center">Truck Load Media</h1>
-    <div class="row"></div>
+    <div class="container">
+        <div class="row">
+            {% for load in list_loads %}
+            <div class="card col-3 m-1">
+                <img src="{{ load.image.url }}" class="card-img-top" alt="..." />
+                <div class="card-body">
+                    <h2 class="card-title">{{load.title}}</h2>
+                    <h3 class="card-title">{{load.price}}</h3>
+                    <p class="card-text">{{load.desc}}</p>
+                    <p class="card-text">Dispatched at {{load.created_at|timesince}}</p>
+                    <a href="#!" class="btn btn-primary">Button</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 
 
 
 
     <!-- {{list_loads}} -->
 
-    {% for load in list_loads %}
+    <!-- {% for load in list_loads %}
     <h1>{{load.title}}</h1>
     <h2>{{load.price}}</h2>
     <p>{{load.desc}}</p>
     <hr>
 
 
-    {% endfor %}
+    {% endfor %} -->
     <!-- End your project here-->
 
     <!-- MDB -->
