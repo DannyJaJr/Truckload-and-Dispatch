@@ -11,9 +11,20 @@
         <div class="col-12 col-md-6 col-lg-3 col-xl-3">
             <!-- card content -->
             <div class="card mt-3" style="height: 530px;">
+
+                <!-- default images are from : https://placeholder.com/ -->
+                {% if load.image == "http://default" %}
+                <a href="{% url 'detail' load.id %}">
+                    <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="logo load image"
+                        style="height: 200px;" />
+                </a>
+                {% else %}
                 <a href="{% url 'detail' load.id %}">
                     <img src="{{ load.image.url }}" class="card-img-top" alt="logo load image" style="height: 200px;" />
                 </a>
+                {% endif %}
+
+
                 <div class="card-body mt-2">
                     <h2 class="card-title"><a href="{% url 'detail' load.id %}">{{load.title}}</a></h2>
                     <!-- the {% url 'detail' load.id %}" allow to look for the page "detail.html" to parse the the id from models.py -->
