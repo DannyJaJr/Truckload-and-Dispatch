@@ -24,17 +24,24 @@
     <div class="container">
         <div class="row">
             {% for load in list_loads %}
-            <!-- <div class="card col-4 m-1"> -->
-            <div class="card col-4">
-                <img src="{{ load.image.url }}" class="card-img-top" alt="logo load image"  style="height: 200px; width: 300px;"/>
-                <div class="card-body">
-                    <h2 class="card-title">{{load.title}}</h2>
-                    <h3 class="card-title">{{load.price}}</h3>
-                    <p class="card-text">{{load.desc |truncatewords:10}}</p>
-                    <p class="card-text">Dispatched at {{load.created_at|timesince}}</p>
-                    <a href="#!" class="btn btn-primary">Button</a>
+            <!-- col-12 = for mobile, col-md-6 for middle screen ... -->
+            <div class="col-12 col-md-6 col-lg-3 col-xl-3">
+                    <!-- card content -->
+                <div class="card" style="height: 530px;">
+                    <img src="{{ load.image.url }}" class="card-img-top" alt="logo load image" style="height: 200px;" />
+                    <div class="card-body">
+                        <h2 class="card-title">{{load.title}}</h2>
+                        <h3 class="card-title">{{load.price}}</h3>
+                        <p class="card-text">{{load.desc |truncatewords:10}}</p>
+                        <p class="card-text">Dispatched at {{load.created_at|timesince}}</p>
+                        <a href="#!" class="btn btn-primary">Button</a>
+                    </div>
                 </div>
+
             </div>
+
+
+
             {% endfor %}
         </div>
     </div>
