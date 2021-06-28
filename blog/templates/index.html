@@ -1,85 +1,37 @@
-<!DOCTYPE html>
-<!-- to allow to load the function on html -->
-{% load static %}
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Truck Loads & Dispatch</title>
-    <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
-    <!-- Google Fonts Roboto -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
-    <!-- MDB -->
-    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
-</head>
+{% block content %}
 
-<body>
-    <!-- Start your project here-->
-
-
-    {% include '_nav.html' %}
-    <!-- {% load static %}
-    {% block content %} -->
-
-    <h1 class="text-center mt-3">Truck Load Media</h1>
-    <!-- class mt-3 to provide margin with the _nav.html -->
-    <div class="container">
-        <div class="row">
-            {% for load in list_loads %}
-            <!-- col-12 = for mobile, col-md-6 for middle screen ... -->
-            <div class="col-12 col-md-6 col-lg-3 col-xl-3">
-                <!-- card content -->
-                <div class="card mt-3" style="height: 530px;">
-                    <a   href="{% url 'detail' load.id %}">
-                        <img src="{{ load.image.url }}" class="card-img-top" alt="logo load image"
-                            style="height: 200px;" />
-                    </a>
-                    <div class="card-body mt-2">
-                        <h2 class="card-title"><a href="{% url 'detail' load.id %}">{{load.title}}</a></h2>
-                        <!-- the {% url 'detail' load.id %}" allow to look for the page "detail.html" to parse the the id from models.py -->
-                        <h3 class="card-title">{{load.price}}</h3>
-                        <p class="card-text">{{load.desc |truncatewords:10}}</p>
-                        <p class="card-text">Dispatched at {{load.created_at|timesince}}</p>
+<h1 class="text-center mt-3">Truck Load Media</h1>
+<!-- class mt-3 to provide margin with the _nav.html -->
+<div class="container">
+    <div class="row">
+        {% for load in list_loads %}
+        <!-- col-12 = for mobile, col-md-6 for middle screen ... -->
+        <div class="col-12 col-md-6 col-lg-3 col-xl-3">
+            <!-- card content -->
+            <div class="card mt-3" style="height: 530px;">
+                <a href="{% url 'detail' load.id %}">
+                    <img src="{{ load.image.url }}" class="card-img-top" alt="logo load image" style="height: 200px;" />
+                </a>
+                <div class="card-body mt-2">
+                    <h2 class="card-title"><a href="{% url 'detail' load.id %}">{{load.title}}</a></h2>
+                    <!-- the {% url 'detail' load.id %}" allow to look for the page "detail.html" to parse the the id from models.py -->
+                    <h3 class="card-title">{{load.price}}</h3>
+                    <p class="card-text">{{load.desc |truncatewords:10}}</p>
+                    <p class="card-text">Dispatched at {{load.created_at|timesince}}</p>
 
 
-                        <a href="{% url 'detail' load.id %}" class="btn btn-primary">Read</a>
-                    </div>
+                    <a href="{% url 'detail' load.id %}" class="btn btn-primary">Read</a>
                 </div>
-
             </div>
 
-
-
-            {% endfor %}
         </div>
+
+
+
+        {% endfor %}
     </div>
+</div>
 
-
-
-
-    <!-- {{list_loads}} -->
-
-    <!-- {% for load in list_loads %}
-    <h1>{{load.title}}</h1>
-    <h2>{{load.price}}</h2>
-    <p>{{load.desc}}</p>
-    <hr>
-
-
-    {% endfor %} -->
-    <!-- End your project here-->
-    <!-- {% endblock %} -->
-    <!-- MDB -->
-
-    {% include '_footer.html' %}
-    <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
-    <!-- Custom scripts -->
-    <script type="text/javascript"></script>
-</body>
-
-</html>
+{% endblock %}
