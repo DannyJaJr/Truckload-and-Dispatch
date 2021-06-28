@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-uf=upeb!np@b5v$g^9+av3k*@sl9-*k^z^@^m(zcykg66#6ihc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 # ngrok is now allowed host for https request
-ALLOWED_HOSTS = ['a04e4840b5f9.ngrok.io']
+# ALLOWED_HOSTS = ['a04e4840b5f9.ngrok.io']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

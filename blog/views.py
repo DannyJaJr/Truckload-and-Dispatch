@@ -21,4 +21,6 @@ def detail(request, id_load):
     # print("the load id is: " , id_load)
     load=Load.objects.get(id=id_load)
     # load=Load.objects.get(id=id_load) is tested on the shell by 'Load.objects.all()' and  Load.objects.get(id=1)
-    return render(request, 'detail.html', {"load": load})
+    category = load.category
+    loads_in_relation = Load.objects.filter(category =  category)
+    return render(request, 'detail.html', {"load": load, "lir": loads_in_relation})

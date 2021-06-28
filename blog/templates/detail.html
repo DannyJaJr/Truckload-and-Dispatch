@@ -14,7 +14,13 @@
             <p class="mb-5 mt-3">{{load.desc}}</p>
         </div>
         <div class="col-md-4 text-center mt-1">
-            <h1>Other loads</h1>
+            <h1>Related loads</h1>
+            {%  for lds in lir %}
+            <p>{{lds.title}}</p>
+            <p>{{lds.price}}</p>
+            {%  endfor %}
+
+
         </div>
     </div>
 
