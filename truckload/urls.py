@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 # bring views to create the path for home
-from blog.views import home
+from blog.views import home, detail
 #  to render static file documentation (https://docs.djangoproject.com/en/3.2/howto/static-files/)
 from django.conf import settings
 from django.conf.urls.static import static
@@ -27,6 +27,8 @@ urlpatterns = [
     # path('', include("blog.urls")),
     # 2 now import home function from view
     path('', home, name="home"),
+    # the "<> allows to call any id, the int: allows only integer parsing"
+    path('load/<int:id_load>', detail, name="detail" ),
 
     # https://docs.djangoproject.com/en/3.2/howto/static-files/ for storage image from the settings
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
