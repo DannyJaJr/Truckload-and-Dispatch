@@ -20,4 +20,6 @@ def home(request):
 # to render the page detail.html to read card button "read"
 def detail(request, id_load):
     # print("the load id is: " , id_load)
-    return render(request, 'detail.html')
+    load=Load.objects.get(id=id_load)
+    # load=Load.objects.get(id=id_load) is tested on the shell by 'Load.objects.all()' and  Load.objects.get(id=1)
+    return render(request, 'detail.html', {"load": load})

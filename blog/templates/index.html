@@ -35,9 +35,13 @@
             <div class="col-12 col-md-6 col-lg-3 col-xl-3">
                 <!-- card content -->
                 <div class="card mt-3" style="height: 530px;">
-                    <img src="{{ load.image.url }}" class="card-img-top" alt="logo load image" style="height: 200px;" />
+                    <a   href="{% url 'detail' load.id %}">
+                        <img src="{{ load.image.url }}" class="card-img-top" alt="logo load image"
+                            style="height: 200px;" />
+                    </a>
                     <div class="card-body mt-2">
-                        <h2 class="card-title">{{load.title}}</h2>
+                        <h2 class="card-title"><a href="{% url 'detail' load.id %}">{{load.title}}</a></h2>
+                        <!-- the {% url 'detail' load.id %}" allow to look for the page "detail.html" to parse the the id from models.py -->
                         <h3 class="card-title">{{load.price}}</h3>
                         <p class="card-text">{{load.desc |truncatewords:10}}</p>
                         <p class="card-text">Dispatched at {{load.created_at|timesince}}</p>
