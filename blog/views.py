@@ -3,7 +3,6 @@ from django.shortcuts import render
 from .models import Load
 
 # Create your views here.
-
 ########### Functions ###################################
 # function for the root page as home 
 def home(request):
