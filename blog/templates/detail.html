@@ -15,20 +15,34 @@
         </div>
         <div class="col-md-4 text-center mt-1">
             <h1>Related loads</h1>
-            {%  for lds in lir %}
-            <p>{{lds.title}}</p>
-            <p>{{lds.price}}</p>
-            {%  endfor %}
+            <div class="row">
+                {% for lds in lir %}
+                <!-- To prevent loads repetition -->
+                {% if lds.id != load.id %}
+                <div class="col-md-7 mb-2">
+                    {% if lds.image != "http://default" %}
+                    <a href="{% url 'detail' lds.id %}"><img src="{{lds.image.url}}" alt="Card image cap" style="max-width: 180px;" /></a>
+                    {% else %}
+                    <img class="card-img-top" src="https://via.placeholder.com/400x300" alt="Card image cap"
+                        style="max-width: 180px;" />
+                    {% endif %}
+                </div>
+
+                <div class="col-5">
+                    <a href="{% url 'detail' lds.id %}"><strong> {{lds.title |truncatewords:2}}} </strong> <br></a>
+                    <strong><em>{{lds.price}}</em> <br></strong>
+                    {{lds.desc |truncatewords:6}}
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+        
 
 
         </div>
     </div>
 
 </div>
-
-
-
-
-
 
 {% endblock %}

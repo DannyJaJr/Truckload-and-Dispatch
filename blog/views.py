@@ -21,6 +21,7 @@ def detail(request, id_load):
     # print("the load id is: " , id_load)
     load=Load.objects.get(id=id_load)
     # load=Load.objects.get(id=id_load) is tested on the shell by 'Load.objects.all()' and  Load.objects.get(id=1)
+    # :[:5] => to limit the lods displyed related to 6 
     category = load.category
-    loads_in_relation = Load.objects.filter(category =  category)
+    loads_in_relation = Load.objects.filter(category =  category)[:6]
     return render(request, 'detail.html', {"load": load, "lir": loads_in_relation})
