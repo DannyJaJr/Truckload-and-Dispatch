@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-# bring views to create the path for home
-from blog.views import home, detail
+# bring views to create the path for home, deatail, search
+from blog.views import home, detail, search
 #  to render static file documentation (https://docs.djangoproject.com/en/3.2/howto/static-files/)
 from django.conf import settings
 from django.conf.urls.static import static
@@ -29,7 +29,9 @@ urlpatterns = [
     path('', home, name="home"),
     # the "<> allows to call any id, the int: allows only integer parsing"
     path('load/<int:id_load>', detail, name="detail" ),
-
+    # for the search form on the nav bar
+    path('load/research', search, name="search" ),
+    
     # https://docs.djangoproject.com/en/3.2/howto/static-files/ for storage image from the settings
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

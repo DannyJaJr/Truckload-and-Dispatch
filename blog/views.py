@@ -2,7 +2,7 @@ from django.shortcuts import render
 # Now importing the load fro function
 from .models import Load
 
-# Create your views here.
+# Create your views here. GET POST META method
 ########### Functions ###################################
 # function for the root page as home 
 def home(request):
@@ -25,3 +25,15 @@ def detail(request, id_load):
     category = load.category
     loads_in_relation = Load.objects.filter(category =  category)[:6]
     return render(request, 'detail.html', {"load": load, "lir": loads_in_relation})
+
+
+
+#function for the search bar on the vav header
+def search(request):
+    # the attribut will interset the the value from the form search to incorporate these value as  a GET
+    query= request.GET["load"]
+     # SELECT * FROM load where title like '%'+query+  => https://docs.djangoproject.com/en/3.2/ref/request-response/
+    # icontains  allows non sesnsitive case while contains rpvide sensitive case search 
+    list_load = Load.objects.filter(title__contains = query)
+    return render(request, "search.html", {"list_load": list_load})
+# query stands for the request the database may start whit anything 

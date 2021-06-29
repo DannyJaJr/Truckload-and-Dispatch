@@ -29,6 +29,10 @@ class Load(models.Model):
         return self.title
 
 
+Load.objects.all()
+
+
+
 
 
 

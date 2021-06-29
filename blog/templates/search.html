@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="container">
+    <h2>List of research</h2>
+    Yor resaexh is requested is {{query}}
+    {%for load in list_load %}
+
+    <li>{{load.title}}</li>
+    <p>{{load.price}}</p>
+    <p>{{load.desc}}</p>
+    <hr>
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}

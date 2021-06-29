@@ -6,7 +6,7 @@
 ## An embedded screenshot of the app
 
 ## Explanations of the technologies used
-1. Technologies used: Python, HTML, Bootstrap,  Django, NGROk for local hosting, Django-extensions for scripts.
+1. Technologies used: Python, HTML, JacaScript Bootstrap,  Django, NGROk for local hosting, Django-extensions for scripts.
 ## A couple paragraphs about the general approach you took
 1. Bootstrap is used to separate data rendered from the models with classes containers, cols, and rows, {block content} on the base.html to display many arguments.
 2. Bootstrap file is downloaded and unzipped as static style folder: https://mdbootstrap.com/
