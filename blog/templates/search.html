@@ -1,21 +1,57 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block content %}
 
-
 <div class="container">
     <h2>List of research</h2>
-    Yor resaexh is requested is {{query}}
-    {%for load in list_load %}
+    <div class="row">
 
+        {%for load in list_load %}
+
+        <div class="col-12 col-md-6 col-lg-3 col-xl-3">
+            <!-- card content -->
+            <div class="card mt-3 p-2" style="height: 530px;">
+
+                <!-- default images are from : https://placeholder.com/ -->
+                {% if load.image == "http://default" %}
+                <a href="{% url 'detail' load.id %}">
+                    <!-- This will look on the static file on img file to look for logo.jpg -->
+                    <img src="{% static 'img/logo1.jpg'  %}" class="card-img-top" alt="logo load image"
+                        style="height: 200px;" />
+                </a>
+                {% else %}
+                <a href="{% url 'detail' load.id %}">
+                    <img src="{{ load.image.url }}" class="card-img-top" alt="logo load image" style="height: 200px;" />
+                </a>
+                {% endif %}
+
+
+                <div class="card-body mt-2">
+                    <h2 class="card-title"><a href="{% url 'detail' load.id %}">{{load.title}}</a></h2>
+                    <!-- the {% url 'detail' load.id %}" allow to look for the page "detail.html" to parse the the id from models.py -->
+                    <h3 class="card-title">{{load.price}}</h3>
+                    <p class="card-text">{{load.desc |truncatewords:10}}</p>
+                    <p class="card-text">Dispatched at {{load.created_at|timesince}}</p>
+
+
+                    <a href="{% url 'detail' load.id %}" class="btn btn-primary">Read</a>
+                </div>
+            </div>
+
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+</div>
+
+{% endblock %}
+
+<!-- Yor resaexh is requested is {{query}}
     <li>{{load.title}}</li>
     <p>{{load.price}}</p>
     <p>{{load.desc}}</p>
-    <hr>
-    {% endfor %}
-</div>
-
-
-
-{% endblock %}
+    <hr> -->

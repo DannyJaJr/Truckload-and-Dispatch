@@ -37,3 +37,21 @@ def search(request):
     list_load = Load.objects.filter(title__contains = query)
     return render(request, "search.html", {"list_load": list_load})
 # query stands for the request the database may start whit anything 
+
+
+
+# function to recieve sms  https://www.youtube.com/watch?v=KYQ3u3xDPRA
+def sms(request):
+    message = request.GET['body']
+    # to separate the message into 2 parts
+    message_splited = message.split("-")
+    # to set the first part of the array as title
+    title = message_splited[0]
+    # to set the 2nd part of the array as description
+    desc = message_splited[1]
+
+    agri_category = Category.objects.get(id = 2)
+    load = Load(title = title, category = agri_category, desc = desc, image = "http://default")
+    load.save()
+    print('data saved succesfully')
+    return HttpResponse("data saved succesfully")

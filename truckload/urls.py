@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-# bring views to create the path for home, deatail, search
-from blog.views import home, detail, search
+# bring views to create the path for home, deatail, search, sms
+from blog.views import home, detail, search, sms
 #  to render static file documentation (https://docs.djangoproject.com/en/3.2/howto/static-files/)
 from django.conf import settings
 from django.conf.urls.static import static
@@ -31,8 +31,12 @@ urlpatterns = [
     path('load/<int:id_load>', detail, name="detail" ),
     # for the search form on the nav bar
     path('load/research', search, name="search" ),
+    # to recieve data from android and to start development server at http://127.0.0.1:8000/
+    path('message-sms', sms, name="sms"),
     
     # https://docs.djangoproject.com/en/3.2/howto/static-files/ for storage image from the settings
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-
+# http://192.168.0.12:8000/message-sms     my ip is 192.168.0.12
+# python3 manage.py runserver 0.0.0.0:8000 allows the server to run all ips range
+# http://192.168.0.12:8000/message-sms?body = content or titlt - body of the message
