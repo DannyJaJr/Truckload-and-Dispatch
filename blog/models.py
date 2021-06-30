@@ -1,5 +1,8 @@
 from django.db import models
 
+from decouple import config
+from twilio.rest import Client
+
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -30,6 +33,33 @@ class Load(models.Model):
 
 
 Load.objects.all()
+
+
+
+
+class Message(models.Model):
+    name = models.CharField(max_length=100)
+    score = models.IntegerField(default=0)
+
+    def __str__(self):
+        return str(self.name)
+
+
+    def save(self, *args, **kwargs):
+        if self.score >= 0:
+            account_sid = config('account_sid')
+            auth_token = config('auth_token')
+            client = Client(account_sid, auth_token)
+
+            message = client.messages.create(
+                body=f"congratulation {self.name}, youscroenis {self.score}",
+                from_= config('device_number'),
+                to= config('my_number')
+            )
+        
+        print(message.sid)
+            
+        return super().save( *args, **kwargs)
 
 
 
