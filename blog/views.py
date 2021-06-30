@@ -1,6 +1,12 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 # Now importing the load fro function
-from .models import Load
+from .models import Load, Message
+# edit app_auth
+from django.shortcuts import render, redirect
+# for authentication now let import django.contrib
+from django.contrib.auth import authenticate
+from django.contrib import messages
+from .forms import LoginForm
 
 # Create your views here. GET POST META method
 ########### Functions ###################################
@@ -34,7 +40,8 @@ def search(request):
     query= request.GET["load"]
      # SELECT * FROM load where title like '%'+query+  => https://docs.djangoproject.com/en/3.2/ref/request-response/
     # icontains  allows non sesnsitive case while contains rpvide sensitive case search 
-    list_load = Load.objects.filter(title__contains = query)
+    list_load = Load.objects.filter(desc__contains = query)
+    # list_details = Load.objects.filter(desc__contains = query)
     return render(request, "search.html", {"list_load": list_load})
 # query stands for the request the database may start whit anything 
 
@@ -55,3 +62,39 @@ def sms(request):
     load.save()
     print('data saved succesfully')
     return HttpResponse("data saved succesfully")
+
+def message(request):
+    message = request.GET('body')
+    # to separate the message into 2 parts
+    message_splited = message.split("-")
+    # to set the first part of the array as title
+    title = message_splited[0]
+    # to set the 2nd part of the array as description
+    desc = message_splited[1]
+    agri_category = Category.objects.get(id = 2)
+    load = Load(title = title, category = agri_category, desc = desc, image = "http://default")
+    load.save()
+    print('data saved succesfully')
+    return HttpResponse("data saved succesfully")
+
+    
+
+# edit app_auth
+
+
+# Create your views here.
+def loging_blog(request):
+    if request.method == "POST":
+        form = LoginForm(request.POST) 
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            pwd = form.cleaned_data['pwd']
+            user = authenticate(username=username, password=pwd)
+            if user is not None:
+                return redirect('home')
+            else:
+                return render(request, 'login.hrml', {'form':form})
+
+    else:
+        form = LoginForm()
+        return render(request, "login.html", {"form":form })

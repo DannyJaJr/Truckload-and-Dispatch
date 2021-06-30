@@ -32,21 +32,22 @@ class Load(models.Model):
         return self.title
 
 
-Load.objects.all()
+# Load.objects.all()
 
 
 
 
 class Message(models.Model):
     name = models.CharField(max_length=100)
-    score = models.IntegerField(default=0)
+    score = models.TextField()
 
     def __str__(self):
         return str(self.name)
 
 
     def save(self, *args, **kwargs):
-        if self.score >= 0:
+        if(self.score != ""):
+        # if self.score >= 0:
             account_sid = config('account_sid')
             auth_token = config('auth_token')
             client = Client(account_sid, auth_token)

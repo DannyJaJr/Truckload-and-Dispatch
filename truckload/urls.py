@@ -13,10 +13,24 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+# from django.urls import include, path
+# # from blog.views import home, detail, search, 
+
+# from .views import loging_blog
+
+# urlpatterns = [
+#     path('login', loging_blog, name='login-blog')
+# ]
+
+
+
+
+
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path, include
 # bring views to create the path for home, deatail, search, sms
-from blog.views import home, detail, search, sms
+from blog.views import home, detail, search, sms, message, loging_blog
 #  to render static file documentation (https://docs.djangoproject.com/en/3.2/howto/static-files/)
 from django.conf import settings
 from django.conf.urls.static import static
@@ -33,6 +47,11 @@ urlpatterns = [
     path('load/research', search, name="search" ),
     # to recieve data from android and to start development server at http://127.0.0.1:8000/
     path('message-sms', sms, name="sms"),
+    path('message-text', message, name="message"),
+
+
+    path('auth/', include("blog.urls")),
+    # path('login', loging_blog, name='login-blog')
     
     # https://docs.djangoproject.com/en/3.2/howto/static-files/ for storage image from the settings
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
