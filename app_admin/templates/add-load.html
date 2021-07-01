@@ -7,7 +7,17 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h2>Add load</h2>
+            <h2 class="text-center">Add your load info</h2>
+            <form action="">
+            {% csrf_token%}
+             {{form}}
+
+            <button class="btn-btn-primary btn-block "> Save</button>
+            </form>
+            
+
+            
+           
         </div>
 
     </div>
