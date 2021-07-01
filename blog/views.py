@@ -145,3 +145,9 @@ def logout_blog(request):
     logout(request)
     return redirect('login-blog')
 
+
+
+
+# # function pout admin
+# def dashboard(request):
+#     return render(request, 'db.html')
