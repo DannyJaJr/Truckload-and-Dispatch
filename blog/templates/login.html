@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 
-{% block title %} Connexion of blog {% endblock %}
+{% block title %} Truckload Connection {% endblock %}
 
 {% block content %}
 
@@ -15,20 +15,34 @@
         </div>
         {% endfor %}
         {% endif %}
-        <form action="" method="POST"> {% csrf_token %}
+        <form action="" method="POST" novalidate> {% csrf_token %}
             <div class="card">
                 <div class="card-header text-center"><i class="fas fa-user"> My account</i></div>
                 <div class="card-body">
                     <label for="id_username">Name</label>
+                    {% if form.username.errors %}
+                    {%  for error in form.username.errors   %}
+                    <div class="div-error-{{form.username.name}}"><small class="text-danger" >{{error}}</small></div>
+                    {% endfor %}
+                    {% endif %}
                     {{form.username}}
+
+
                     <label for="id_pwd">Password</label>
+                    {% if form.pwd.errors %}
+                    {%  for error in form.pwd.errors   %}
+                    <div class="div-error-{{form.pwd.name}}"></div>><small class="text-danger" >{{error}}</small></div>
+                    {% endfor %}
+                    {% endif %}
                     {{form.pwd}}
                     <!-- <input type="text" placeholder="type your name" name="username" class="form-control mb-2" required>
                     <input type="password" placeholder="Password" name="pwd" class="form-control" required> -->
                 </div>
                 <div class="card-footer">
                     <button class="btn btn-primary btn-block">Sign in</button>
+                    <p class="mt-2">You don't have any acccount ? <a href="{% url 'register' %}">Register here</a></p>
                 </div>
+                
             </div>
 
         </form>

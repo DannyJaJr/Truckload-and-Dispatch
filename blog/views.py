@@ -4,9 +4,11 @@ from .models import Load, Message
 # edit app_auth
 from django.shortcuts import render, redirect
 # for authentication now let import django.contrib
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import LoginForm
+from django.contrib.auth.models import User
+# to import all types of forms such as login , register
+from .forms import *
 
 # Create your views here. GET POST META method
 ########### Functions ###################################
@@ -82,7 +84,7 @@ def message(request):
 # edit app_auth
 
 
-# Create your views here.
+# function for loggin
 def loging_blog(request):
     if request.method == "POST":
         form = LoginForm(request.POST) 
@@ -91,10 +93,55 @@ def loging_blog(request):
             pwd = form.cleaned_data['pwd']
             user = authenticate(username=username, password=pwd)
             if user is not None:
+                login(request, user)
                 return redirect('home')
             else:
-                return render(request, 'login.hrml', {'form':form})
-
+                messages.error(request, 'Your email address and password combination do not match any of our accounts.')
+                return render(request, 'login.html', {'form':form})
+        else:  
+            # for field in form.errors:
+            #     # to render the form input in colors 
+            #     form[field].field.widget.attrs['class'] += 'is-invalid'
+                # ['class'] += 'is-invalid' is class from bootstrap
+            return render(request, 'login.html', {'form':form})
+            
+            
+            
+            
     else:
         form = LoginForm()
         return render(request, "login.html", {"form":form })
+
+
+
+# function to create an account
+def register(request):
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            pwd = form.cleaned_data['pwd']
+            user =User.objects.create_user(username=username, password = pwd)
+            if user is not None:
+                return redirect("login-blog")
+            else:
+                messages.error(request, 'Creation failure')
+                return render(request, 'register.html', {'form':form})
+        else:
+            return render(request, 'register.html', {'form':form})
+                
+
+
+
+        return render(request, 'register.html', {})
+    
+    form = RegisterForm()
+    return render(request, 'register.html', {'form':form})
+
+
+
+# function to log out users
+def logout_blog(request):
+    logout(request)
+    return redirect('login-blog')
+

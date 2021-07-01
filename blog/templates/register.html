@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Create an account {% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="col-md-12 mt-5">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger text-center">
+            <strong>{{message}}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <form action="" method="POST" novalidate> {% csrf_token %}
+            <div class="card">
+                <div class="card-header text-center"><i class="fas fa-user-lock"> Create an account</i></div>
+                <div class="card-body">
+                    {{form}}
+
+
+
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary btn-block">Sign up</button>
+                </div>
+            </div>
+
+        </form>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

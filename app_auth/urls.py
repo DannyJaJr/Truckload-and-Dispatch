@@ -5,5 +5,5 @@
 # from .views import loging_blog
 
 # urlpatterns = [
-#     path('login', loging_blog, name='login-blog')
+#     path('login2', loging_blog, name='login-blog')
 # ]
