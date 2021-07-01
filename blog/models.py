@@ -1,4 +1,6 @@
 from django.db import models
+# to allow users acces on load model
+from django.contrib.auth.models import User
 
 from decouple import config
 from twilio.rest import Client
@@ -14,13 +16,15 @@ class Category(models.Model):
 
 
 class Load(models.Model):
+    # to allow users acces on loads
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     price = models.CharField(max_length=20)
     # price = models.IntegerField()
     title = models.CharField(max_length=50)
     # sync category with load, CASCADE allows deletion of relative
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     desc = models.TextField()
-    image = models.ImageField()
+    image = models.ImageField(null=True, blank=True)
     # image=models.ImageField(upload_to="articles")
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now = True)

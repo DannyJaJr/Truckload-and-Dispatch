@@ -1,0 +1,65 @@
+{% extends 'partials/base2.html' %}
+
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+
+
+        <div class="col-md-12">
+            <h2 class="mt-3">My Loads</h2>
+        </div>
+        <h3><i class="fas fa-truck"></i> If you can commit to delivery on time, Emmergency or breakdown, add your load
+            bellows</h3>
+
+        <div class="col-md-12 mb-3">
+
+            <a href="{% url 'add-load' %}" class="btn btn-danger float-end"><i class="fas fa-plus"></i>Add Your Load</a>
+        </div>
+
+        <div class="col-md-12">
+
+            {% if list_loads %}
+            <div class="card m-5">
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class=h5>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Edit/Delete</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for loads in list_loads %}
+                            <tr>
+                                <td><a href="" class="h5">{{loads}}</a></td>
+                                <td><a href="" class="h5">{{loads.desc}}</a></td>
+                                <td>
+                                    <a href="" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                                    <a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                </td>
+                            </tr>
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            {% else %}
+            <h3>You don't have any load</h3>
+            {% endif %}
+        </div>
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}
