@@ -15,6 +15,7 @@ from pathlib import Path
 # to install a .env to store secret keys => pip install python-decouple then from decouple import config
 from decouple import config
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
