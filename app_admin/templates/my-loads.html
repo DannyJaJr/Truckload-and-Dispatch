@@ -5,6 +5,7 @@
 {% block content %}
 
 <div class="container">
+
     <div class="row">
 
 
@@ -35,13 +36,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for loads in list_loads %}
+                            {% for load in list_loads %}
                             <tr>
-                                <td><a href="" class="h5">{{loads}}</a></td>
-                                <td><a href="" class="h5">{{loads.desc}}</a></td>
+                                <td><a href="" class="h5">{{load}}</a></td>
+                                <td><a href="" class="h5">{{load.desc}}</a></td>
                                 <td>
-                                    <a href="" class="btn btn-info"><i class="fas fa-edit"></i></a>
-                                    <a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                    <a href="{% url 'update-load' load.pk %}" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                                    <a href="{% url 'delete-load' load.pk %}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
 

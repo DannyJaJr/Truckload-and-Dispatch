@@ -53,6 +53,9 @@ urlpatterns = [
     path('auth/', include("blog.urls")),
     path('my-admin/', include("app_admin.urls")),
     # path('login', loging_blog, name='login-blog')
+
+
+    
     
     # https://docs.djangoproject.com/en/3.2/howto/static-files/ for storage image from the settings
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

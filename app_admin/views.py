@@ -3,6 +3,7 @@ from blog.models import Load
 # for CRUD rendering
 from django.views.generic.edit import UpdateView, CreateView, DeleteView
 from blog.forms import LoadForm
+from django.urls import reverse
 
 # Create your views here.
 # # function pout admin
@@ -33,13 +34,24 @@ class AddLoad(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-
+# class to update loads
 class UpdateLoad(UpdateView):
     model = Load
     form_class =LoadForm
-    # to force Django to look for the right template, because the default value was blog/load_form.html
     template_name = 'app_admin/load_form.html'
+    # return reverse("updateload", kwargs={"slug": self.slug})
+    # success_url = '/my-admin/my-loads'
+
+  
+
+
+class DeleteLoad(DeleteView):
+    model = Load
     success_url = '/my-admin/my-loads'
+
+  
+
+
 
 
 

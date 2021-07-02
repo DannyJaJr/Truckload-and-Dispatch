@@ -5,14 +5,12 @@ from . import views
 from .views import *
 
 urlpatterns = [
-    # path('', views.index, name='index'),
-    # the view.py will call the function 'home' to render in templates for the "/" path
+    
+     # corecteted path from blog
     path('', views.home, name='home'),
     path('login', loging_blog, name='login-blog'),
     path('register', register, name='register'),
     path('logout', logout_blog, name='logout'),
-    # path('', dashboard, name="dashboard"),
-    
 ]
 
 
