@@ -4,6 +4,7 @@ from blog.models import Load
 from django.views.generic.edit import UpdateView, CreateView, DeleteView
 from blog.forms import LoadForm
 from django.urls import reverse
+from django.core.exceptions import PermissionDenied
 # implemented authentication on classes
 from django.contrib.auth.mixins import LoginRequiredMixin
 # implemented authentication on  functions
@@ -56,6 +57,12 @@ class UpdateLoad(LoginRequiredMixin ,UpdateView):
 class DeleteLoad(DeleteView):
     model = Load
     success_url = "/my-admin/my-loads"
+
+    def dispath(self, request, *args, **kwargs):
+        if not request.user.has_perm('blog.delete_load'):
+            raise PermissionDenied
+
+        return super().dispath(request, *args, **kwargs)
     
 
   

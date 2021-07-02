@@ -10,8 +10,9 @@
             <form action="" methode="POST">
                 {% csrf_token %}
                 <h1>Do you wish to delete the load {{object}}? </1>
-                    <input type="submit" value="Delete" class="btn btn-danger">
-                    <a href="" class="btn btn-secondary">Non</a>
+                   <Button>DELET</Button>
+                    <!-- <input type="submit" value="Delete" class="btn btn-danger"> -->
+                    <a href="{% url 'my-loads'  %}" class="btn btn-secondary">Non</a>
             </form>
         </div>
     </div>
