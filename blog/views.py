@@ -94,7 +94,7 @@ def loging_blog(request):
             user = authenticate(username=username, password=pwd)
             if user is not None:
                 login(request, user)
-                return redirect('home')
+                return redirect('dashboard')
             else:
                 messages.error(request, 'Your email address and password combination do not match any of our accounts.')
                 return render(request, 'login.html', {'form':form})

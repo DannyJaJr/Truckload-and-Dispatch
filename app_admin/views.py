@@ -4,6 +4,10 @@ from blog.models import Load
 from django.views.generic.edit import UpdateView, CreateView, DeleteView
 from blog.forms import LoadForm
 from django.urls import reverse
+# implemented authentication on classes
+from django.contrib.auth.mixins import LoginRequiredMixin
+# implemented authentication on  functions
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 # # function pout admin
@@ -12,9 +16,13 @@ def dashboard(request):
 
 
 # funtion to display user loads
+@login_required
 def user_loads(request):
-    if not request.user.is_authenticated:
-        return rredirect('login')
+    if request.user.has_perm("blog.delete_load"):
+        print("You don't have the right")
+    else:
+        print("Access granted for deletiont")
+    
     list_loads = Load.objects.filter(user= request.user)
     return render(request, 'my-loads.html', {'list_loads': list_loads})
 
@@ -22,7 +30,7 @@ def user_loads(request):
 
 ########### class 
 # class to add a load
-class AddLoad(CreateView):
+class AddLoad(LoginRequiredMixin  ,CreateView):
     model = Load
     form_class = LoadForm
     # to display where the form will be render
@@ -35,7 +43,7 @@ class AddLoad(CreateView):
         return super().form_valid(form)
 
 # class to update loads
-class UpdateLoad(UpdateView):
+class UpdateLoad(LoginRequiredMixin ,UpdateView):
     model = Load
     form_class =LoadForm
     template_name = 'app_admin/load_form.html'
