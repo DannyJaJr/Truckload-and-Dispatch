@@ -26,13 +26,16 @@
 
 
 
+
                 <ul class="navbar-nav d-flex flex-row">
-                    {%   if user.is_authenticated %}
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <span class="nav-link" href="#">User: {{user.username}}</span>
                     </li>
-                    {%  endif %}
+                    {% endif %}
                     
+
+
                     <!-- Icons -->
                     <!-- Icon dropdown -->
                     <li class="nav-item me-3 me-lg-0 dropdown">
@@ -41,14 +44,17 @@
                             <i class="fas fa-user"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {%   if user.is_authenticated %}
+                            {% if user.is_authenticated %}
 
                             <li>
                                 <a class="dropdown-item" href="{% url 'logout' %}">Sign out</a>
                             </li>
-                            {%  endif %}
+                            {% endif %}
+                            <li>
+                                <a class="dropdown-item" href="{% url 'add-load'  %}">Add a Load</a>
+                            </li>
 
-                            
+
                         </ul>
                     </li>
                 </ul>
