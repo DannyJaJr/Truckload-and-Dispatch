@@ -10,15 +10,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 # to allow storage fro image on media file
-import os import environ
+import os 
 from pathlib import Path
 # to install a .env to store secret keys => pip install python-decouple then from decouple import config
 from decouple import config
+# import dj_database_url
 
 
-print('(config)', environ)
-SECRET_KEY = environ['SECRET_KEY']
-print('(SECRET_KEY)', SECRET_KEY)
+
+# DATABASES['default'] = dj_database_url.config()
+# print('(config)', environ)
+# SECRET_KEY = environ['SECRET_KEY']
+# print('(SECRET_KEY)', SECRET_KEY)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
