@@ -35,7 +35,6 @@ from blog.views import home, detail, search, sms, message, loging_blog, phoneFun
 from django.conf import settings
 from django.conf.urls.static import static
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('loging/', include("django.contrib.auth.urls")), new
