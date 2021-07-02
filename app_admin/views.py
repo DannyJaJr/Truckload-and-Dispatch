@@ -47,7 +47,8 @@ class UpdateLoad(UpdateView):
 
 class DeleteLoad(DeleteView):
     model = Load
-    success_url = '/my-admin/my-loads'
+    success_url = "/my-admin/my-loads"
+    
 
   
 
