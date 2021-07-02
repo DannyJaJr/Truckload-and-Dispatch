@@ -21,7 +21,7 @@ class Load(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     price = models.CharField(max_length=20)
     # price = models.IntegerField()
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=40)
     # sync category with load, CASCADE allows deletion of relative
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     desc = models.TextField()

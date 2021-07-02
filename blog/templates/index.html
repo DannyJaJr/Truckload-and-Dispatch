@@ -28,7 +28,7 @@
 
 
                 <div class="card-body mt-2">
-                    <h2 class="card-title"><a href="{% url 'detail' load.id %}">{{load.title}}</a></h2>
+                    <h2 class="card-title"><a href="{% url 'detail' load.id %}">{{load.title |truncatewords:14}}</a></h2>
                     <!-- the {% url 'detail' load.id %}" allow to look for the page "detail.html" to parse the the id from models.py -->
                     <h3 class="card-title">{{load.price}}</h3>
                     <p class="card-text">{{load.desc |truncatewords:10}}</p>
