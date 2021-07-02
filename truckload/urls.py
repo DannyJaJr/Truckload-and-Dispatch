@@ -50,6 +50,9 @@ urlpatterns = [
     # to recieve data from android and to start development server at http://127.0.0.1:8000/
     path('message-sms', sms, name="sms"),
     path('message-text', message, name="message"),
+
+
+    
     
 
 
