@@ -9,6 +9,12 @@ from django.core.exceptions import PermissionDenied
 from django.contrib.auth.mixins import LoginRequiredMixin
 # implemented authentication on  functions
 from django.contrib.auth.decorators import login_required
+from django.http import Http404
+from django.shortcuts import render
+
+
+
+
 
 # Create your views here.
 # # function pout admin
@@ -53,16 +59,36 @@ class UpdateLoad(LoginRequiredMixin ,UpdateView):
 
   
 
+# # class to delete a load
+# class DeleteLoad(DeleteView):
+#     model = Load
+#     success_url = "/my-loads"
 
-class DeleteLoad(DeleteView):
-    model = Load
-    success_url = "/my-admin/my-loads"
 
-    def dispath(self, request, *args, **kwargs):
-        if not request.user.has_perm('blog.delete_load'):
-            raise PermissionDenied
+# def delete_load(request, load_id):
 
+
+
+def delete_event(request, event_id):
+    event = Load.objects.get(pk=event_id)
+    event.delete()
+    return redirect("my-loads")
+
+# def DeleteLoad(request,  event_id):
+#     event = Event,objects.get(pk=event_id)
+#     event.delete()
+#     return redirect("my-load")
+
+
+# Raising a 404
+def dispath(self, request, *args, **kwargs):
+    if not request.user.has_perm('blog.delete_load'):
+        raise Http404("Permission Denied")
         return super().dispath(request, *args, **kwargs)
+
+
+
+        
     
 
   

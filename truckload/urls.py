@@ -37,6 +37,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('loging/', include("django.contrib.auth.urls")), new
+    
     # 1 the main root path of my app is set to blog
     # path('', include("blog.urls")),
     # 2 now import home function from view
