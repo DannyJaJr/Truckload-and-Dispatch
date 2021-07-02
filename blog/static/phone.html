@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+{% block content %}
+
+
+<form action="POST">
+
+{%  csrf_token %}
+Name : <input type="text" name= "name">
+<button typpe="submit"   class="btn btn-primary" >Send</button>
+
+</form>
+
+{% endblock %}

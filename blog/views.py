@@ -151,3 +151,24 @@ def logout_blog(request):
 # # function pout admin
 # def dashboard(request):
 #     return render(request, 'db.html')
+
+
+
+
+# def PhoneData(request):
+#      data = request.POST.get('phoneNumber')
+#      print(phoneNumber)
+#      return render(request, 'detail.html')
+
+
+
+def PhoneData(request):
+     data = request.POST.get('name')
+     print(name)
+     return render(request, 'detail.html', {'data':data})
+
+
+def phoneFunction(request):
+     data = request.POST.get('name')
+     print(name)
+     return render(request, 'detail.html', {'data':data})

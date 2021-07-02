@@ -13,7 +13,30 @@
             <img src="{{load.image.url}}" alt="load-logo" style="max-width: 800px;">
             <h3>{{load.title}}</h3>
             <p class="mb-5 mt-3">{{load.desc}}</p>
+
+
+
+            <div>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <h5>Are you ready to commit this load for delivery</h5>
+                    Enter Phone for Load agreement : <input type="text" name="name">
+                    <button typpe="submit" class="btn btn-primary">Send</button>
+
+                </form>
+                <!-- <h1>You have enter : {{data}}</h1> -->
+
+            </div>
         </div>
+
+
+
+
+
+
+
+
+
         <div class="col-md-4 text-center mt-1">
             <h1>Related loads</h1>
             <div class="row">
@@ -33,6 +56,8 @@
                     {% endif %}
 
                 </div>
+
+
 
 
 

@@ -13,6 +13,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+class PhoneNumber(models.Model):
+    my_phone = models.CharField(max_length=11)
+    def __str__(self):
+        return self.name
 
 
 
