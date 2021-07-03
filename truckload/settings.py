@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os 
 from pathlib import Path
 # to install a .env to store secret keys => pip install python-decouple then from decouple import config
-from decouple import config
+# from decouple import config
 # import dj_database_url
 # import dj_database_url
 
@@ -38,13 +38,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'mkoijnbhu098752365267592476dsxbsjhcsfgsvfh$%@%&*V#6d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 # ngrok is now allowed host for https request
 # ALLOWED_HOSTS = ['a04e4840b5f9.ngrok.io']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
