@@ -12,6 +12,7 @@ psycopg2-binary = "*"
 whitenoise = "*"
 dj-database-url = "*"
 python-decouple = "*"
+twilio = "*"
 
 [dev-packages]
 
