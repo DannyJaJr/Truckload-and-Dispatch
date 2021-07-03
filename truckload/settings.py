@@ -44,7 +44,7 @@ SECRET_KEY = 'mkoijnbhu098752365267592476dsxbsjhcsfgsvfh$%@%&*V#6d'
 DEBUG = True
 # ngrok is now allowed host for https request
 # ALLOWED_HOSTS = ['a04e4840b5f9.ngrok.io']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['truckloads.herokuapp.com']
 
 
 # Application definition
