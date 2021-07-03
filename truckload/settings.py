@@ -15,9 +15,10 @@ from pathlib import Path
 # to install a .env to store secret keys => pip install python-decouple then from decouple import config
 from decouple import config
 # import dj_database_url
+# import dj_database_url
 
 
-
+# DATABASES['default'] = dj_database_url.config()
 # DATABASES['default'] = dj_database_url.config()
 # print('(config)', environ)
 # SECRET_KEY = environ['SECRET_KEY']
@@ -40,7 +41,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG')
+DEBUG = True
 # ngrok is now allowed host for https request
 # ALLOWED_HOSTS = ['a04e4840b5f9.ngrok.io']
 ALLOWED_HOSTS = ['*']
