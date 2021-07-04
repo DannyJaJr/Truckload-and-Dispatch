@@ -3,8 +3,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 
-from decouple import config
-from twilio.rest import Client
+# # from  import 
+# from twilio.rest import Client
 
 # Create your models here.
 class Category(models.Model):
@@ -65,22 +65,22 @@ class Message(models.Model):
         return str(self.name)
 
 
-    def save(self, *args, **kwargs):
-        if(self.score != ""):
-        # if self.score >= 0:
-            account_sid = config('account_sid')
-            auth_token = config('auth_token')
-            client = Client(account_sid, auth_token)
+    # def save(self, *args, **kwargs):
+    #     if(self.score != ""):
+    #     # if self.score >= 0:
+    #         account_sid = ('account_sid')
+    #         auth_token = ('auth_token')
+    #         client = Client(account_sid, auth_token)
 
-            message = client.messages.create(
-                body=f"congratulation {self.name}, youscroenis {self.score}",
-                from_= config('device_number'),
-                to= config('my_number')
-            )
+    #         message = client.messages.create(
+    #             body=f"congratulation {self.name}, youscroenis {self.score}",
+    #             from_= ('device_number'),
+    #             to= ('my_number')
+    #         )
         
-        print(message.sid)
+    #     print(message.sid)
             
-        return super().save( *args, **kwargs)
+    #     return super().save( *args, **kwargs)
 
 
 
