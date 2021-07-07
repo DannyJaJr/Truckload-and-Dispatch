@@ -1,7 +1,7 @@
 from blog.models import Load
 
 def run():
-    for i in range(5, 15):
+    for i in range(5, 8):
         load = Load()
         load.image = "http://default"
         load.tilte = "Load No #%d" % i
