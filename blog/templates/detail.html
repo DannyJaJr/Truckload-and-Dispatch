@@ -10,7 +10,7 @@
         <!-- boostrap screen is 12, md-8 will take 8 space, and md-4 will use the rest -->
         <div class="col-md-8">
             <h2>{{load.price}} </h2>
-            <img src="{{load.image.url}}" alt="load-logo" style="max-width: 800px;">
+            <img src="{{load.image.url}}" alt="load-logo" style="max-width: 750px;">
             <h3>{{load.title}}</h3>
             <p class="mb-5 mt-3">{{load.desc}}</p>
 
@@ -19,12 +19,13 @@
             <div>
                 <form action="" method="POST">
                     {% csrf_token %}
+                    
                     <h5>Are you ready to commit this load for delivery</h5>
-                    Enter Phone for Load agreement : <input type="text" name="name">
-                    <button typpe="submit" class="btn btn-primary">Send</button>
+                    Enter Phone for Load agreement : <input type="text" name="=myphone">
+                    <button type="submit" class="btn btn-primary">Send</button>
 
                 </form>
-                <!-- <h1>You have enter : {{data}}</h1> -->
+             
 
             </div>
         </div>

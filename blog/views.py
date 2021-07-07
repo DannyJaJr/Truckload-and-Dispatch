@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 # to import all types of forms such as login , register
 from .forms import *
+from twilio.rest import Client
 
 # Create your views here. GET POST META method
 ########### Functions ###################################
@@ -148,27 +149,67 @@ def logout_blog(request):
 
 
 
-# # function pout admin
-# def dashboard(request):
-#     return render(request, 'db.html')
 
 
 
 
-# def PhoneData(request):
-#      data = request.POST.get('phoneNumber')
-#      print(phoneNumber)
-#      return render(request, 'detail.html')
+
+# def PhoneNumber(request):
+#      dataName = request.POST.get('dataName')
+     
+
+#      print(data)
+#     #  return render(request, 'detail.html')
+#      return render(request, 'detail.html', {'data':data})
+
+def PhoneNumber(request):
+    myphone = request.POST.get('phone')
+    bid = request.POST.get('bid')
+
+    def __str__(self):
+        return '{} {}' .format(self.myphone, self.bid ) 
+        # return self.myphone, self.bid
+
+    def save(self, *args, **kwargs):
+        if self.bid > 0:
+            account_sid = ''
+            auth_token = ''
+            client = Client(account_sid, auth_token)
+            message = client.messages.create(
+                body='We agreed about your bid, and will send you the load agreement and information- {self.bid}',
+                from_='+',
+                to='{self.myphone}'
+            )
+            print(message.sid)
+            return super().save(*args, **kwargs) 
+       
+        
+            
+            
+        
+        
+    
+        
+    
+    
+    
+        
+        
+        
+        
+    
+    
+        
+    
+        
 
 
 
-def PhoneData(request):
-     data = request.POST.get('name')
-     print(name)
-     return render(request, 'detail.html', {'data':data})
 
 
-def phoneFunction(request):
-     data = request.POST.get('name')
-     print(name)
-     return render(request, 'detail.html', {'data':data})
+
+#     account_sid = ACd83c9485ae7266b9463107dc0236fd04
+
+# auth_token = f2dc20d810db06cf0194037dcfa90fc5
+
+# device_number = +19513303151

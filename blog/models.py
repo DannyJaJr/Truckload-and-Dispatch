@@ -14,9 +14,10 @@ class Category(models.Model):
         return self.name
 
 class PhoneNumber(models.Model):
-    my_phone = models.CharField(max_length=11)
+    myphone = models.CharField(max_length=11)
+    bid = models.CharField(max_length=11)
     def __str__(self):
-        return self.name
+        return '{} {}' .format(self.myphone, self.bid ) 
 
 
 

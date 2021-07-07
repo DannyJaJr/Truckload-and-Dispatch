@@ -30,7 +30,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 # bring views to create the path for home, deatail, search, sms
-from blog.views import home, detail, search, sms, message, loging_blog, phoneFunction
+from blog.views import home, detail, search, sms, message, loging_blog
+# from blog.views import home, detail, search, sms, message, loging_blog, phoneFunction
 #  to render static file documentation (https://docs.djangoproject.com/en/3.2/howto/static-files/)
 from django.conf import settings
 from django.conf.urls.static import static
@@ -62,7 +63,7 @@ urlpatterns = [
 
 
     ########path for phone access
-    path('load/<int:id_load>', phoneFunction, name="phoneFunction")
+    
 
 
     
