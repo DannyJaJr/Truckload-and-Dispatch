@@ -80,9 +80,7 @@ def message(request):
     print('data saved succesfully')
     return HttpResponse("data saved succesfully")
 
-    
 
-# edit app_auth
 
 
 # function for loggin
@@ -152,16 +150,7 @@ def logout_blog(request):
 
 
 
-
-
-# def PhoneNumber(request):
-#      dataName = request.POST.get('dataName')
-     
-
-#      print(data)
-#     #  return render(request, 'detail.html')
-#      return render(request, 'detail.html', {'data':data})
-
+### function to send sms for load requirements
 def PhoneNumber(request):
     myphone = request.POST.get('phone')
     bid = request.POST.get('bid')
@@ -187,29 +176,4 @@ def PhoneNumber(request):
             
             
         
-        
-    
-        
-    
-    
-    
-        
-        
-        
-        
-    
-    
-        
-    
-        
-
-
-
-
-
-
-#     account_sid = ACd83c9485ae7266b9463107dc0236fd04
-
-# auth_token = f2dc20d810db06cf0194037dcfa90fc5
-
-# device_number = +19513303151
+      
