@@ -12,7 +12,7 @@
 
 ## Explanations of the technologies used
 1. Technologies used: Python, HTML, JacaScript Bootstrap,  Django, NGROk for local hosting, Django-extensions for scripts.
-
+2. Ngrok for all HTTP traffic running over your tunnels local server, update loads from all users, and text messages
 ### function to create static truc default the users removed all created load
 ````````
 def run():
@@ -50,6 +50,7 @@ admin.site.register(PhoneNumber)
 ## Installation instructions for any dependencies
 * Fork and Clone the repo
 * https://truckloads.herokuapp.com/
+* not secure : http://danieljajr.pythonanywhere.com/
 
 ## Who are your users.
 * Anyone can check loads on the home page
