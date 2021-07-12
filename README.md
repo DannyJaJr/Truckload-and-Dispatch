@@ -62,7 +62,7 @@ admin.site.register(PhoneNumber)
 * To add loads users are described as a dispatch where they have their private dashboard (CRUD) to log-in add post edit only their private loads.
 ![MyBoard](blog/static/img/dispatch .png)
 
-## Link to your wireframes – sketches of major views / interfaces in your application
+## Link to  wireframes – sketches of major views / interfaces of the application
 ![Lucide](blog/static/img/LucideChart.png)
 
 # Responsive footer and navigation  bar for users.
@@ -71,7 +71,7 @@ admin.site.register(PhoneNumber)
 ## Proposed architecture
 * Ngrok for all HTTP traffic running over your tunnels
 * Reset passord options for users
-* Enable twilio function for private users, to send sms and messages for loads. All numbers are will be stored in our database and no securty against kacking is provided.  
+* Enable twilio function for private users, to send sms and messages for loads. All numbers are will be stored in our database and no securty against Hacking is provided.  
 
 
 
