@@ -1,6 +1,6 @@
 # Truckload-and-Dispatch
 ## Home Page
-1. Fully responsive adapted to all mobile screens, all working functions, and links for Dispatching load board.
+1. Fully responsive adapted to all mobile screens, all working functions, and links for a Dispatching load board.
 2. The home page displays all loads where truck drivers can check availability, with the option to put their phone number for bidding and load agreement if dispatch agrees with the pricing.
 
 3. The loads show  information such as prices and related past trips
