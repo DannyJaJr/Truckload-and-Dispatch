@@ -1,0 +1,27 @@
+{
+    "version": 2,
+    "builds":[
+        {
+            "src":"truckload/wsgi.py",
+            "use": "@vercel/python",
+            "config":{"maxLamdaSize": "15mb", "runtime": "python3.11.3"}
+        },
+        {
+            "src": "build_files.sh",
+            "use": "@vercel/static-build",
+            "config":{
+                "distDis": "staticfiles_build"
+            }
+        }
+    ],
+    "routes":[
+        {
+            "src": "/static/(.*)",
+            "dest": "static/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "truckload/wsgi.py"
+        }
+    ]
+}
