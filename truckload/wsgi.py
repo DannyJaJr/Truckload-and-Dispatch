@@ -15,5 +15,8 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'truckload.settings')
 
 application = get_wsgi_application()
 
+# new aaded for vecel deployment
+app = application
+
 
 

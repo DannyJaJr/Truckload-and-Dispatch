@@ -36,7 +36,10 @@ SECRET_KEY = 'SECRET'
 DEBUG = True
 # ngrok is now allowed host for https request
 # ALLOWED_HOSTS = ['a04e4840b5f9.ngrok.io']
-ALLOWED_HOSTS = ['truckloads.herokuapp.com', '127.0.0.1']
+# ALLOWED_HOSTS = ['truckloads.herokuapp.com', '127.0.0.1']
+
+# added for vercel deployment
+ALLOWED_HOSTS = ['vercel.app', '.now.sh']
 
 
 # Application definition
@@ -147,7 +150,7 @@ LOGIN_URL = "/auth/login"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -159,3 +162,9 @@ runtime.txt
 dependances: django-heroku, gunicorn
 
 """
+
+# added for vercel deployment
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
